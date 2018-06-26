@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dalel.View.LocationDetails"
+             Title="تفاصيل الموقع">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />                
+            </Grid.ColumnDefinitions>
+            <Image x:Name="LocationImage" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" />
+            <StackLayout Grid.Row="3" Grid.Column="0" BackgroundColor="Beige">
+                <Label x:Name="LocationNameLabel" Text="LocationName" FontSize="Large" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Start"/>
+                <Label x:Name="LocationCatLabel" Text="Location Catgoury" TextColor="BurlyWood" HorizontalOptions="End" VerticalOptions="End"/>
+            </StackLayout>
+            <WebView x:Name="browser" WidthRequest="10" Grid.Row="4" Grid.Column="0" Grid.RowSpan="2" />
+           
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

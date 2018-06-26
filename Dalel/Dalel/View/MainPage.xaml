@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Dalel"
+             xmlns:ViewModel="clr-namespace:Dalel.ViewModel"
+             x:Class="Dalel.MainPage"
+             Title="دليل مصراتة">
+
+    <ContentPage.BindingContext>
+
+        <ViewModel:MainViewModel/>
+
+    </ContentPage.BindingContext>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="LocationsListView" Grid.Column="0" Grid.Row="0" ItemTapped="LocationsListView_ItemTapped"
+                  HasUnevenRows="True" ItemsSource="{Binding LocationList}" 
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding RefreshCommand}"
+                  IsRefreshing="{Binding IsRefreshing}">
+
+            <ListView.ItemTemplate>
+
+                <DataTemplate>
+                    <ImageCell Height="90"  DetailColor="BurlyWood" TextColor="Black"
+                                     Text="{Binding LocationName}" 
+                                     Detail="{Binding LocationCat}"
+                                     ImageSource="{Binding LocationPic}">
+                    </ImageCell>
+
+                    <!--<ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding LocationName}"/>
+                            <Image Source="{Binding LocationPic}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Text="{Binding LocationPic}"/>
+                            <Label Text="{Binding LocationCat}"/>
+                            <Label Text="{Binding LocationId}"/>
+                            
+                        </StackLayout>
+                        
+                    </ViewCell>-->
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+        </ListView>
+        <ActivityIndicator  IsRunning="true" IsVisible ="{Binding DoneFetch}">
+            
+            
+        </ActivityIndicator>
+    </Grid>
+    
+</ContentPage>
